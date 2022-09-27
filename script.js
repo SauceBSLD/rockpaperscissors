@@ -25,15 +25,15 @@ function playRound(compChoice, playerChoice) {
     } else if ((playerChoice === "Rock" && compChoice === "Scissors") || (playerChoice === "Paper" && compChoice === "Rock")
     || (playerChoice === "Scissors" && compChoice === "Rock")) {
         console.log("You won this round!");
-        confirm("Do you want to play again?") ? startGame() : console.log("Game ended");
+        startGame();
     } else {
-        console.log("Fuck! You lost...");
-        confirm("Do you want to play again?") ? startGame() : console.log("Game ended");
+        console.log("You lost...");
+        startGame();
     }
 }
 
 function startGame() {
-    confirm("Do you want to start a new game?") ? getPlayerChoice(prompt("Rock, Paper or Scissors ?", "")) : console.log("See you later!");
+    confirm("Do you want to start a new game?") ? getPlayerChoice(prompt("Rock, Paper or Scissors ?", "")) : console.log("See you soon!");
 }
 
-startGame()
+startGame();
