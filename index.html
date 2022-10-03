@@ -5,8 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="styles.css"/>
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <script src="script.js"></script>
+    <div class="head">
+        <h1>Welcome to the Rock Paper Scissors UI</h1>
+        <img alt="Rock Paper Scissors logo" src="images/rps.png"/>
+    </div>
+    <div class="container">
+        <div class="buttonContainer">
+           <div><button class="rock">Rock</button></div>
+           <div><button class="paper">Paper</button></div>
+           <div><button class="scissors">Scissors</button></div>
+        </div>
+        <div class="resultContainer">
+            <p class="playerChoice"></p>
+            <p class="compChoice"></p>
+            <p class="result"></p>
+        </div>
+    </div>
 </body>
 </html>

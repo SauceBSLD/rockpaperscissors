@@ -1,3 +1,7 @@
+const player = document.querySelector('.playerChoice')
+const comp = document.querySelector('.compChoice')
+const result = document.querySelector('.result')
+
 function getComputerChoice() {
     let choice = ["Rock", "Paper", "Scissors"];
     let computerSelection = choice[Math.floor(Math.random() * choice.length)];
@@ -5,35 +9,51 @@ function getComputerChoice() {
 }
 
 function getPlayerChoice(input) {
-    choice = input.charAt(0).toUpperCase() + input.slice(1).toLowerCase();
+    choice = input;
     if (choice === "Rock" || choice === "Paper" || choice === "Scissors") {
         let computerSelection = getComputerChoice();
         playerSelection = choice;
         playRound(computerSelection, playerSelection);
-    } else {
-        console.log("You need to choose between one of the three choices!");
-        startGame();
     }
 }
 
 function playRound(compChoice, playerChoice) {
-    console.log(`You used the ${playerChoice}`);
-    console.log(`Your opponent uses the ${compChoice}`);
+    player.textContent = `You used the ${playerChoice}`;
+    comp.textContent = `Your opponent uses the ${compChoice}`;
     if (playerChoice === compChoice) {
-        console.log("You're even! Try again.");
+        result.textContent = "You're even, try again !";
         startGame();
     } else if ((playerChoice === "Rock" && compChoice === "Scissors") || (playerChoice === "Paper" && compChoice === "Rock")
-    || (playerChoice === "Scissors" && compChoice === "Rock")) {
-        console.log("You won this round!");
+    || (playerChoice === "Scissors" && compChoice === "Paper")) {
+        result.textContent = "You won this round !";
         startGame();
     } else {
-        console.log("You lost...");
+        result.textContent = "Sigh, lost...";
         startGame();
     }
 }
 
-function startGame() {
-    confirm("Do you want to start a new game?") ? getPlayerChoice(prompt("Rock, Paper or Scissors ?", "")) : console.log("See you soon!");
+function startGame(button) {
+    getPlayerChoice(button);
 }
 
-startGame();
+const rock = document.querySelector('.rock');
+const paper = document.querySelector('.paper');
+const scissors = document.querySelector('.scissors');
+const buttons = document.querySelectorAll('button');
+
+rock.addEventListener('click', () => startGame("Rock"));
+paper.addEventListener('click', () => startGame("Paper"));
+scissors.addEventListener('click', () => startGame("Scissors"));
+
+buttons.forEach(button => {
+    button.addEventListener('mouseover', () => {
+        button.classList.toggle('hoverButton');
+    });
+});
+
+buttons.forEach(button => {
+    button.addEventListener('mouseout', () => {
+        button.classList.toggle('hoverButton');
+    });
+});
