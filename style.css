@@ -1,3 +1,8 @@
+html,
+body {
+    height: 100%;
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -38,4 +43,13 @@ button:disabled
 {
     background-color: gray;
     cursor: default;
+}
+.result {
+    background-color: gray;
+    height: 55px;
+    width: 400px;
+    margin: auto;
+    margin-bottom: 50px;
+    color: white;
+    text-align: center;
 }
